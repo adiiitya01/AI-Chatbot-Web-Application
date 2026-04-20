@@ -85,12 +85,6 @@ http://127.0.0.1:5000
 
 ---
 
-## 📸 Screenshots
-
-(Add screenshots of your login page and chatbot UI here)
-
----
-
 ## 🎯 Learning Outcomes
 
 - Full-stack development using Flask  
