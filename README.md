@@ -120,8 +120,8 @@ Ethical Hacker | Web Developer
 
 ## 📬 Connect With Me
 
-LinkedIn: https://www.linkedin.com/ (add your link)  
-GitHub: https://github.com/ (add your link)  
+LinkedIn: www.linkedin.com/in/aditya-udugade-28147b345 
+GitHub: https://github.com/adiiitya01  
 
 ---
 
