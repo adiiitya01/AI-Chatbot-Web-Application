@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="chat-layout">
+      <aside class="history-panel">
+        <div class="history-top">
+          <h2>Chats</h2>
+          <button class="new-chat-side-btn" onclick="startNewChat()">+ New Chat</button>
+        </div>
+        <div id="conversation-list" class="conversation-list"></div>
+      </aside>
+
+      <div class="chat-main">
+        <div class="chat-header">
+          <div class="brand">
+            <div>
+              <h1>FluxAI</h1>
+              <p>Hi, {{ user_name }}</p>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <button class="secondary-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+            <button class="secondary-btn" onclick="regenerateResponse()">🔄 Regenerate</button>
+            <button class="secondary-btn" onclick="startNewChat()">New Chat</button>
+            <button class="danger-btn" onclick="clearCurrentChat()">Clear Chat</button>
+            <button class="secondary-btn" onclick="logoutUser()">Logout</button>
+          </div>
+        </div>
+
+        <div id="chat-box" class="chat-box"></div>
+
+        <div id="typing" class="typing hidden">
+          <span></span><span></span><span></span>
+          <small>Bot is typing...</small>
+        </div>
+
+        <div class="input-area">
+          <input
+            type="text"
+            id="message"
+            placeholder="Type your message..."
+            autocomplete="off"
+          />
+          <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+

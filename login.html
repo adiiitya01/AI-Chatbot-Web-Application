@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - AI Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='auth.css') }}">
+</head>
+<body>
+  <div class="auth-shell">
+    <div class="auth-card">
+      <h1>Welcome Back</h1>
+      <p>Login to continue</p>
+
+     <form method="POST" action="/login">
+  <input type="email" name="email" placeholder="Enter your email" required>
+  <input type="password" name="password" placeholder="Enter your password" required>
+  <button type="submit">Login</button>
+</form>
+
+      <p class="bottom-text">
+        Don’t have an account?
+        <a href="/register">Create one</a>
+      </p>
+
+      <p id="authError" class="auth-error"></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const res = await fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value
+        })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        window.location.href = "/";
+      } else {
+        document.getElementById("authError").textContent = data.error || "Login failed";
+      }
+    });
+  </script>
+</body>
+</html>
